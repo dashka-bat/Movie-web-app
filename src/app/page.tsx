@@ -7,7 +7,9 @@ export default function Home() {
       <div>
         <Header />
       </div>
-      <Body />
+      <Body category="Upcoming"  endpoint="upcomig"/>
+      <Body category="Popular" endpoint ="popular"/>
+      <Body category="Top rated" endpoint="top_rated"/>
     </div>
   );
 }
