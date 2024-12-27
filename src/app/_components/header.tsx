@@ -38,11 +38,7 @@ export const Header = () => {
         <Carousel setApi={setApi} opts={{ loop: true }}>
           <CarouselContent>
             <CarouselItem>
-              <img
-                className="sm:min-w-[375px] 2xl:w-[1536px]"
-                src="pic1.png"
-                alt=""
-              />
+              <img src="pic1.png" alt="" />
               <div className="text-[14px]">
                 Now playing:
                 <div className="flex justify-between">
@@ -63,7 +59,7 @@ export const Header = () => {
               </div>
             </CarouselItem>
             <CarouselItem>
-              <img className="h-[246px]" src="pic2.png" alt="" />
+              <img src="pic2.png" alt="" />
               <div className="text-[14px]">
                 Now playing:
                 <div className="flex justify-between">
@@ -83,7 +79,7 @@ export const Header = () => {
               </div>
             </CarouselItem>
             <CarouselItem>
-              <img className="h-[246px]" src="pic3.png" alt="" />
+              <img src="pic3.png" alt="" />
               <div className="text-[14px]">
                 Now playing:
                 <div className="flex justify-between">

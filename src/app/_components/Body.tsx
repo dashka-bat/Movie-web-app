@@ -47,7 +47,7 @@ export const Body = async ({ category, endpoint }: Props) => {
             <div key={movie.id}>
               <Link href={`/movie/${movie.id}`}>
                 <img
-                  className="rounded-t-lg"
+                  className="rounded-t-lg "
                   src={`${Tdb}${movie.poster_path}`}
                   width={160}
                   height={240}
@@ -65,12 +65,3 @@ export const Body = async ({ category, endpoint }: Props) => {
     </div>
   );
 };
-
-// export const Card = () => {
-//   return (
-//     <div className="bg-gray-500 w-[157.5px] h-[309.1px]">
-//       <div>⭐️</div>
-//       <div>{Information.Title}</div>
-//     </div>
-//   );
-// };

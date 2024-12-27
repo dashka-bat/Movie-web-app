@@ -2,7 +2,6 @@ import { Film } from "lucide-react";
 import { Mail } from "lucide-react";
 import { Phone } from "lucide-react";
 
-let poster = "";
 const Footer = () => {
   return (
     <div className="bg-[#4338CA] w-screen h-[308px] relative">

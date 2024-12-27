@@ -5,11 +5,19 @@ import { Moon } from "lucide-react";
 import { ArrowBigLeft, ArrowBigRight, Film } from "lucide-react";
 import { movieDetails } from "@/app/constants/types";
 import { options } from "@/app/constants/types";
+import { Body } from "@/app/_components/Body";
+type Genre = {
+  id: number;
+  name: string;
+};
 export default async function Page({ params }: movieDetails) {
   const response = await fetch(
     `https://api.themoviedb.org/3/movie/${params.id},`,
     options
   );
+  const Tdb = "https://image.tmdb.org/t/p/w500";
+  const resJson = await response.json();
+  console.log(resJson);
   return (
     <div>
       <div>
@@ -28,7 +36,33 @@ export default async function Page({ params }: movieDetails) {
           </div>
         </div>
       </div>
-      <p>{params.title}</p>
+
+      <div>{resJson.title}</div>
+      <div>{resJson.release_date}</div>
+      <div>⭐{resJson.vote_average.toFixed(1)}/10</div>
+      <img
+        className="rounded-t-lg"
+        src={`${Tdb}${resJson.backdrop_path}`}
+      ></img>
+      <div className="flex">
+        <div>
+          {" "}
+          <img
+            src={`${Tdb}${resJson.poster_path}`}
+            width={100}
+            height={148}
+          ></img>
+        </div>
+        <div>
+          {" "}
+          <div>
+            {resJson?.genres?.map((genre: Genre) => (
+              <div key={genre.id}>{genre.name}</div>
+            ))}
+          </div>
+          <div>{resJson.overview}</div>
+        </div>
+      </div>
     </div>
   );
 }
