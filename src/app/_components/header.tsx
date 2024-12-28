@@ -49,13 +49,13 @@ export const Header = () => {
                   Elphaba, a misunderstood young woman because of her green
                   skin, and Glinda, a popular girl, become friends at Shiz
                   University in the Land of Oz. After an encounter with the
-                  Wonderful Wizard of Oz, their friendship reaches a crossroads.{" "}
+                  Wonderful Wizard of Oz, their friendship reaches a crossroads..{" "}
                 </p>
                 <Button className="w-[145px] h-[40px]">
-                  {" "}
+                  
                   <Play />
                   watch trailer
-                </Button>{" "}
+                </Button>
               </div>
             </CarouselItem>
             <CarouselItem>
