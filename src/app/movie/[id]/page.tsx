@@ -5,7 +5,6 @@ import { Moon } from "lucide-react";
 import { ArrowBigLeft, ArrowBigRight, Film } from "lucide-react";
 import { movieDetails } from "@/app/constants/types";
 import { options } from "@/app/constants/types";
-import { Body } from "@/app/_components/Body";
 type Genre = {
   id: number;
   name: string;
@@ -39,7 +38,7 @@ export default async function Page({ params }: movieDetails) {
 
       <div>{resJson.title}</div>
       <div>{resJson.release_date}</div>
-      <div>⭐{resJson.vote_average.toFixed(1)}/10</div>
+      <div>⭐{resJson.vote_average.toFixed(1)}/100</div>
       <img
         className="rounded-t-lg"
         src={`${Tdb}${resJson.backdrop_path}`}

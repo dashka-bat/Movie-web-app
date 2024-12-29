@@ -1,7 +1,6 @@
 // import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Movie } from "../constants/types";
-import { type } from "os";
 import { ArrowBigRight } from "lucide-react";
 import Link from "next/link";
 
@@ -12,7 +11,7 @@ type Props = {
   endpoint: string;
 };
 
-export const Body = async ({ category, endpoint }: Props) => {
+export const Body = async ({ category, endpoint, }: Props) => {
   const url = `https://api.themoviedb.org/3/movie/${endpoint}?language=en-US&page=1`;
   const options = {
     method: "GET",
