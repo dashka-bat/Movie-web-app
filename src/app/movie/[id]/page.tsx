@@ -2,6 +2,7 @@ import { Header } from "@/app/_components/header";
 import { TopIcon } from "@/app/_components/topicon";
 import { Search } from "lucide-react";
 import { Moon } from "lucide-react";
+
 import { ArrowBigLeft, ArrowBigRight, Film } from "lucide-react";
 import { movieDetails } from "@/app/constants/types";
 import { options } from "@/app/constants/types";

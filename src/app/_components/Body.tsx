@@ -11,7 +11,7 @@ type Props = {
   endpoint: string;
 };
 
-export const Body = async ({ category, endpoint, }: Props) => {
+export const Body = async ({ category, endpoint }: Props) => {
   const url = `https://api.themoviedb.org/3/movie/${endpoint}?language=en-US&page=1`;
   const options = {
     method: "GET",
@@ -46,12 +46,12 @@ export const Body = async ({ category, endpoint, }: Props) => {
             <div key={movie.id}>
               <Link href={`/movie/${movie.id}`}>
                 <img
-                  className="rounded-t-lg "
+                  className="rounded-t-lg ml-8"
                   src={`${Tdb}${movie.poster_path}`}
                   width={160}
                   height={240}
                 ></img>
-                <div className="bg-[#F4F4F5] w-[160px] h-[76px] ">
+                <div className="bg-[#F4F4F5] w-[160px] h-[76px] ml-8 ">
                   <div>⭐{movie.vote_average.toFixed(1)}/10</div>
                   <h3 className="text-[14px]">{movie.title}</h3>
                   <h3 className="text-[14px]">{movie.id}</h3>
