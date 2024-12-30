@@ -11,23 +11,24 @@ import {
 import { useParams, useSearchParams } from "next/navigation";
 import { useState,useEffect, use } from "react";
 import { movieDetails } from "../constants/types";
+import { Pagination1 } from "../_components/pagination";
 
 import { Body } from "../_components/Body";
-// type Props = {
-//   params: {
-//     id: string;
+type Props = {
+  
+    endpoint: string;
 
-//     category: string;
-//   };
-// };
-export default function Home() {
+    category: string;
+  };
+
+export default function Home({category,endpoint,}:Props) {
 
 
 
   const params=useParams();
   const searchParams=useSearchParams();
   const page=searchParams.get(`page`);
-  const [movies,setmovie]=useState<any[]>();
+  const [movies,setmovie]=useState<movieDetails[]>();
   const Tdb = "https://image.tmdb.org/t/p/w500/";
   useEffect(()=>{
     const fetchMovies=async()=>{
@@ -50,16 +51,32 @@ setmovie(data.results);
   },[params]);
   
   return (
-    <>
-     <div className="grid grid-cols-2 gap-7 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
-
-   
-
-
-
+  
+    <div >
+      <div className="grid grid-cols-2 gap-7 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
+     {movies?.map((movie:movieDetails)=>(
+      
+        <div key={movie.id}>
+       
+         <img
+           className="rounded-t-lg "
+           src={`${Tdb}${movie.poster_path}`}
+           width={160}
+           height={240}
+         ></img>
+         <div className="bg-[#F4F4F5] w-[160px] h-[76px] ">
+           <div>⭐{movie.vote_average.toFixed(1)}/10</div>
+           <h3 className="text-[14px]">{movie.title}</h3>
+           <h3 className="text-[14px]">{movie.id}</h3>
+         </div>
+       
+     </div>
+     
+       
+     ))} 
      </div>
       {/* <Body category={params.category} endpoint={params.category} /> */}
-      <Pagination>
+      {/* <Pagination>
         <PaginationContent>
           <PaginationItem>
             <PaginationPrevious href="#" />
@@ -76,7 +93,9 @@ setmovie(data.results);
             <PaginationNext href="#" />
           </PaginationItem>
         </PaginationContent>
-      </Pagination>
-    </>
+      </Pagination> */}
+      <Pagination1/>
+    </div>
+   
   );
 }
