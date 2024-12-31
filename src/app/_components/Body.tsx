@@ -52,7 +52,7 @@ export const Body = async ({ category, endpoint }: Props) => {
                   height={240}
                 ></img>
                 <div className="bg-[#F4F4F5] w-[160px] h-[76px] ml-8 ">
-                  <div>⭐{movie.vote_average.toFixed(1)}/10</div>
+                  <div>⭐{movie.vote_average.toFixed(1)}/100</div>
                   <h3 className="text-[14px]">{movie.title}</h3>
                   <h3 className="text-[14px]">{movie.id}</h3>
                 </div>
