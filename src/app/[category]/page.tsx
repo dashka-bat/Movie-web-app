@@ -1,19 +1,11 @@
 "use client";
-import {
-  Pagination,
-  PaginationContent,
-  PaginationEllipsis,
-  PaginationItem,
-  PaginationLink,
-  PaginationNext,
-  PaginationPrevious,
-} from "@/components/ui/pagination";
+
 import { useParams, useSearchParams } from "next/navigation";
 import { useState, useEffect, use } from "react";
 import { Movie } from "../constants/types";
 import { Pagination1 } from "../_components/pagination";
+import { TopIcon } from "../_components/topicon";
 
-import { Body } from "../_components/Body";
 type Props = {
   endpoint: string;
 
@@ -47,9 +39,11 @@ export default function Home({ category, endpoint }: Props) {
 
   return (
     <div>
+<TopIcon/>
       <div className="grid grid-cols-2 gap-7 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
         {movies?.map((movie: Movie) => (
           <div key={movie.id}>
+            <div className="">{movie.categroy}</div>
             <img
               className="rounded-t-lg "
               src={`${Tdb}${movie.poster_path}`}

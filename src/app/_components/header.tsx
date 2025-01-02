@@ -39,11 +39,11 @@ export const Header = () => {
           <CarouselContent>
             <CarouselItem>
               <img src="pic1.png" alt="" />
-              <div className="text-[14px]">
+              <div className="text-[14px] ml-5">
                 Now playing:
                 <div className="flex justify-between">
                   <p className="text-[24px] ">Wicked</p>
-                  <p className="text-[18px]">⭐6.9/10</p>
+                  <p className="text-[18px] mr-5">⭐6.9/10</p>
                 </div>
                 <p className="text-[14px]">
                   Elphaba, a misunderstood young woman because of her green
@@ -60,11 +60,11 @@ export const Header = () => {
             </CarouselItem>
             <CarouselItem>
               <img src="pic2.png" alt="" />
-              <div className="text-[14px]">
+              <div className="text-[14px] ml-5">
                 Now playing:
                 <div className="flex justify-between">
                   <p className="text-[24px] ">Gladiator II</p>
-                  <p className="text-[18px]">⭐6.9/10</p>
+                  <p className="text-[18px] mr-5">⭐6.9/10</p>
                 </div>
                 <p className="text-[14px]">
                   After his home is conquered by the tyrannical emperors who now
@@ -80,11 +80,11 @@ export const Header = () => {
             </CarouselItem>
             <CarouselItem>
               <img src="pic3.png" alt="" />
-              <div className="text-[14px]">
+              <div className="text-[14px] ml-5">
                 Now playing:
                 <div className="flex justify-between">
                   <p className="text-[24px] ">Moana 2</p>
-                  <p className="text-[18px]">⭐6.9/10</p>
+                  <p className="text-[18px] mr-5">⭐6.9/10</p>
                 </div>
                 <p className="text-[14px]">
                   After receiving an unexpected call from her wayfinding
@@ -101,7 +101,7 @@ export const Header = () => {
           </CarouselContent>
         </Carousel>
         <div className="flex gap-5">
-          <Button
+          <Button className="ml-5"
             onClick={() => {
               api?.scrollTo(current + 1);
             }}

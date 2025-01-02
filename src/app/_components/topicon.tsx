@@ -11,7 +11,7 @@ const search = () => {
 const TopIcon = () => {
   return (
     <div>
-      <div className="flex gap-5 justify-between">
+      <div className="flex gap-5 justify-between mb-4">
         <div className="flex text-purple-500 ml-5 gap-3 mt-5">
           <Film />
           Movie Z

@@ -4,6 +4,7 @@ export type Movie = {
   poster_path: string;
   vote_average: number;
   backdrop_path: string;
+  categroy:string
 };
 export type movieDetails = {
   params: {

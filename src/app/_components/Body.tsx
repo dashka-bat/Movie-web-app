@@ -31,22 +31,22 @@ export const Body = async ({ category, endpoint }: Props) => {
   return (
     <div>
       <div className="flex justify-between">
-        <div className="text-[24px] text-pretty">{category}</div>
+        <div className="text-[24px] text-pretty ml-5 mt-2">{category}</div>
         <Link href={`/${endpoint}`}>
-          <Button>
+          <Button className="mr-4 mb-5">
             see more
             <ArrowBigRight />
           </Button>
         </Link>
       </div>
 
-      <div className="grid grid-cols-2 gap-7 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
+      <div className="grid grid-cols-2 gap-7 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 mr-8">
         {movies
           ?.map((movie: Movie) => (
             <div key={movie.id}>
               <Link href={`/movie/${movie.id}`}>
                 <img
-                  className="rounded-t-lg ml-8"
+                  className="rounded-t-lg ml-5 "
                   src={`${Tdb}${movie.poster_path}`}
                   width={160}
                   height={240}
