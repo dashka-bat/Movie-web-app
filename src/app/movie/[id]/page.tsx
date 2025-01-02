@@ -6,10 +6,12 @@ import { Moon } from "lucide-react";
 import { ArrowBigLeft, ArrowBigRight, Film } from "lucide-react";
 import { movieDetails } from "@/app/constants/types";
 import { options } from "@/app/constants/types";
+// const ad = `https://api.themoviedb.org/3/movie/${params.id}/credits`;
 type Genre = {
   id: number;
   name: string;
 };
+// console.log(ad);
 export default async function Page({ params }: movieDetails) {
   const response = await fetch(
     `https://api.themoviedb.org/3/movie/${params.id},`,
@@ -36,33 +38,40 @@ export default async function Page({ params }: movieDetails) {
           </div>
         </div>
       </div>
+      <div className="flex justify-between ml-5 mr-5 mt-4 mb-3">
+        <div>
+          <div>{resJson.title}</div>
+          <div>{resJson.release_date}</div>
+        </div>
 
-      <div>{resJson.title}</div>
-      <div>{resJson.release_date}</div>
-      <div>⭐{resJson.vote_average.toFixed(1)}/100</div>
+        <div>⭐{resJson.vote_average.toFixed(1)}/10</div>
+      </div>
+
       <img
         className="rounded-t-lg"
         src={`${Tdb}${resJson.backdrop_path}`}
       ></img>
-      <div className="flex">
-        <div>
-          {" "}
-          <img
-            src={`${Tdb}${resJson.poster_path}`}
-            width={100}
-            height={148}
-          ></img>
+      <div className="flex mt-6">
+        <div className="ml-5">
+          <img src={`${Tdb}${resJson.poster_path}`}></img>
         </div>
-        <div>
-          {" "}
-          <div>
+        <div className="ml-14">
+          <div className="flex">
             {resJson?.genres?.map((genre: Genre) => (
-              <div key={genre.id}>{genre.name}</div>
+              <div
+                className="border-[2px] w-fit rounded-lg mt-2 h-fit gap-4"
+                key={genre.id}
+              >
+                {genre.name}
+              </div>
             ))}
           </div>
           <div>{resJson.overview}</div>
         </div>
       </div>
+      <div>director</div>
+      <div>writer</div>
+      <div>director</div>
     </div>
   );
 }

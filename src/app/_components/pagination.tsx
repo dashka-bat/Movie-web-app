@@ -13,9 +13,9 @@ export const Pagination1 = ({}) => {
     router.push(newURL);
   };
   return (
-    <div className="flex gap-5">
+    <div className="flex gap-5 mt-5">
       <div
-        className="border-[2px] border-purple-600"
+        className="border-[2px] w-5 items-center"
         onClick={() => {
           onChangePage(1);
         }}
@@ -23,7 +23,7 @@ export const Pagination1 = ({}) => {
         1
       </div>
       <div
-        className="border-[2px] border-purple-600"
+        className="border-[2px] w-5 items-center"
         onClick={() => {
           onChangePage(2);
         }}
@@ -31,12 +31,12 @@ export const Pagination1 = ({}) => {
         2
       </div>
       <div
-        className="border-[2px] border-purple-600"
+        className="border-[2px] w-5 items-center"
         onClick={() => {
-          onChangePage(15);
+          onChangePage(3);
         }}
       >
-        15
+        3
       </div>
     </div>
   );

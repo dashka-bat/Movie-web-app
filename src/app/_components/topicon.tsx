@@ -1,13 +1,13 @@
 import { Button } from "@/components/ui/button";
 import { ArrowBigLeft, ArrowBigRight, Film } from "lucide-react";
-
+import { FilterG } from "./filterGenre";
 import { Search } from "lucide-react";
 import { Play } from "lucide-react";
 
 import { Moon } from "lucide-react";
-const search = () => {
-  return alert("hiiiii");
-};
+// const search = () => {
+//   return <div>hi</div>;
+// };
 const TopIcon = () => {
   return (
     <div>
@@ -16,9 +16,13 @@ const TopIcon = () => {
           <Film />
           Movie Z
         </div>
+        <div>
+          <FilterG />
+        </div>
+
         <div className="flex">
           <button
-            onClick={search}
+            // onClick={search}
             className="w-[36px] h-[36px] border-[2px] rounded-lg flex justify-center items-center mr-3 mt-3"
           >
             <Search className="w-[16px] h-[16px]" />
