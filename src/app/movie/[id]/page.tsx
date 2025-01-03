@@ -6,38 +6,28 @@ import { Moon } from "lucide-react";
 import { ArrowBigLeft, ArrowBigRight, Film } from "lucide-react";
 import { movieDetails } from "@/app/constants/types";
 import { options } from "@/app/constants/types";
-// const ad = `https://api.themoviedb.org/3/movie/${params.id}/credits`;
+
 type Genre = {
   id: number;
   name: string;
 };
 // console.log(ad);
 export default async function Page({ params }: movieDetails) {
+  const ad = `https://api.themoviedb.org/3/movie/${params.id}/credits`;
+  const res = await fetch(ad, options);
+  const resJsonn = await res.json();
+  console.log(resJsonn.crew, "------------+++++++");
   const response = await fetch(
     `https://api.themoviedb.org/3/movie/${params.id},`,
     options
   );
   const Tdb = "https://image.tmdb.org/t/p/w500";
   const resJson = await response.json();
-  console.log(resJson);
+
+  // console.log(resJson);
   return (
     <div>
-      <div>
-        <div className="flex gap-5 justify-between">
-          <div className="flex text-purple-500 ml-5 gap-3 mt-5">
-            <Film />
-            Movie Z
-          </div>
-          <div className="flex">
-            <button className="w-[36px] h-[36px] border-[2px] rounded-lg flex justify-center items-center mr-3 mt-3">
-              <Search className="w-[16px] h-[16px]" />
-            </button>
-            <button className="w-[36px] h-[36px] border-[2px] rounded-lg flex justify-center items-center mr-5 mt-3">
-              <Moon className="w-[16px] h-[16px] " />
-            </button>
-          </div>
-        </div>
-      </div>
+      <TopIcon />
       <div className="flex justify-between ml-5 mr-5 mt-4 mb-3">
         <div>
           <div>{resJson.title}</div>
@@ -53,7 +43,9 @@ export default async function Page({ params }: movieDetails) {
       ></img>
       <div className="flex mt-6">
         <div className="ml-5">
-          <img src={`${Tdb}${resJson.poster_path}`}></img>
+          <img
+            src={`https://image.tmdb.org/t/p/w500${resJson.poster_path}`}
+          ></img>
         </div>
         <div className="ml-14">
           <div className="flex">
@@ -69,7 +61,10 @@ export default async function Page({ params }: movieDetails) {
           <div>{resJson.overview}</div>
         </div>
       </div>
-      <div>director</div>
+      <div>
+        director
+        {resJsonn?.crew?.map((cast: any) => <div>{cast.name}</div>).slice(0, 3)}
+      </div>
       <div>writer</div>
       <div>director</div>
     </div>

@@ -7,6 +7,7 @@ import { Pagination1 } from "../_components/pagination";
 import { TopIcon } from "../_components/topicon";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
+import { PageInfo } from "next/dist/build/utils";
 
 type Props = {
   endpoint: string;
@@ -19,6 +20,10 @@ export default function Home({ category, endpoint }: Props) {
   const searchParams = useSearchParams();
   const page = searchParams.get(`page`);
   const [movies, setmovie] = useState<Movie[]>();
+  const [pageInfo, setPageInfo] = useState<any>({
+    totalPages: 0,
+    currentPage: 0,
+  });
   const Tdb = "https://image.tmdb.org/t/p/w500/";
   useEffect(() => {
     const fetchMovies = async () => {
@@ -34,7 +39,9 @@ export default function Home({ category, endpoint }: Props) {
       let movies: Movie[] = [];
       const res = await fetch(url, options);
       const data = await res.json();
-      setmovie(data.results);
+      setmovie(data?.results?.slice(0, 5));
+
+      setPageInfo({ currentPage: Number(page), totalPages: data.total_pages });
     };
     fetchMovies();
   }, [params]);
@@ -69,26 +76,7 @@ export default function Home({ category, endpoint }: Props) {
           </Link>
         ))}
       </div>
-      {/* <Body category={params.category} endpoint={params.category} /> */}
-      {/* <Pagination>
-        <PaginationContent>
-          <PaginationItem>
-            <PaginationPrevious href="#" />
-          </PaginationItem>
-          <PaginationItem>
-            <PaginationLink href="#">1</PaginationLink>
-            <PaginationLink href="#">2</PaginationLink>
-            <PaginationLink href="#">3</PaginationLink>
-          </PaginationItem>
-          <PaginationItem>
-            <PaginationEllipsis />
-          </PaginationItem>
-          <PaginationItem>
-            <PaginationNext href="#" />
-          </PaginationItem>
-        </PaginationContent>
-      </Pagination> */}
-      <Pagination1 />
+      <Pagination1 pageInfo={pageInfo} />
     </div>
   );
 }

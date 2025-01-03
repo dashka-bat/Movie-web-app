@@ -27,7 +27,9 @@ export const Body = async ({ category, endpoint }: Props) => {
 
   const movies = data.results;
   // console.log(movies);
-
+  if (!movies) {
+    <div>loading</div>;
+  }
   return (
     <div>
       <div className="flex justify-between">

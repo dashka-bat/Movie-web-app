@@ -3,6 +3,7 @@ import { ArrowBigLeft, ArrowBigRight, Film } from "lucide-react";
 import { FilterG } from "./filterGenre";
 import { Search } from "lucide-react";
 import { Play } from "lucide-react";
+import Link from "next/link";
 
 import { Moon } from "lucide-react";
 // const search = () => {
@@ -12,10 +13,13 @@ const TopIcon = () => {
   return (
     <div>
       <div className="flex gap-5 justify-between mb-4">
-        <div className="flex text-purple-500 ml-5 gap-3 mt-5">
-          <Film />
-          Movie Z
-        </div>
+        <Link href="/">
+          <div className="flex text-purple-500 ml-5 gap-3 mt-5">
+            <Film />
+            Movie Z
+          </div>
+        </Link>
+
         <div>
           <FilterG />
         </div>

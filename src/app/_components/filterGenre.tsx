@@ -30,21 +30,19 @@ export const FilterG = () => {
       );
       const data = await res.json();
       setGenre(data.genres);
-      //   console.log(data.genres);
+      // console.log(data);
     };
     fetchGenre();
   }, [genres]);
-  const onclickGenre = (genreId: number) => {};
+  // const onclickGenre = (genreId: number) => {};
   return (
     <div className="border-[2px]">
       <Popover>
         <PopoverTrigger>⬇</PopoverTrigger>
         <PopoverContent>
           {genres?.map((genre: Genretype) => (
-            <Link href={`/search?_genres=${genre.id}`}>
-              <Badge key={genre?.id} className="ml-4">
-                {genre?.name}→
-              </Badge>
+            <Link href={`/search?with_genres=${genre.id}`}>
+              <Badge key={genre?.id}>{genre?.name}→</Badge>
             </Link>
           ))}
         </PopoverContent>
