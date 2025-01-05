@@ -16,7 +16,7 @@ export const Pagination1 = ({ pageInfo }: { pageInfo: any }) => {
   const lastpage = pageInfo.totalPages > 500 ? 500 : pageInfo.totalpages;
   return (
     <div className="flex gap-5 mt-5">
-      {/* <div
+      <div
         className="border-[2px] w-5 items-center"
         onClick={() => {
           onChangePage(1);
@@ -39,7 +39,7 @@ export const Pagination1 = ({ pageInfo }: { pageInfo: any }) => {
         }}
       >
         3
-      </div> */}
+      </div>
     </div>
   );
 };

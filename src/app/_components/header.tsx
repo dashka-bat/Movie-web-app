@@ -34,8 +34,9 @@ export const Header = () => {
   return (
     <div>
       <TopIcon />
+      
       <div>
-        <Carousel setApi={setApi} opts={{ loop: true }}>
+        <Carousel className="snap-normal" setApi={setApi} opts={{ loop: true }}>
           <CarouselContent>
             <CarouselItem>
               <img src="pic1.png" alt="" />

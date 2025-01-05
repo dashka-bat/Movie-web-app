@@ -16,7 +16,7 @@ export default async function Page({ params }: movieDetails) {
   const ad = `https://api.themoviedb.org/3/movie/${params.id}/credits`;
   const res = await fetch(ad, options);
   const resJsonn = await res.json();
-  console.log(resJsonn.crew, "------------+++++++");
+  // console.log(resJsonn.crew, "------------+++++++");
   const response = await fetch(
     `https://api.themoviedb.org/3/movie/${params.id},`,
     options
@@ -66,7 +66,10 @@ export default async function Page({ params }: movieDetails) {
         {resJsonn?.crew?.map((cast: any) => <div>{cast.name}</div>).slice(0, 3)}
       </div>
       <div>writer</div>
-      <div>director</div>
+      <div>stars</div>
+      <div>more like this
+        <div>kk</div>
+      </div>
     </div>
   );
 }

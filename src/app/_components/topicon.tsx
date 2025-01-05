@@ -4,6 +4,7 @@ import { FilterG } from "./filterGenre";
 import { Search } from "lucide-react";
 import { Play } from "lucide-react";
 import Link from "next/link";
+import { SearchForMainPage } from "./Searchmain.page";
 
 import { Moon } from "lucide-react";
 // const search = () => {
@@ -20,17 +21,19 @@ const TopIcon = () => {
           </div>
         </Link>
 
-        <div>
-          <FilterG />
-        </div>
+        
 
         <div className="flex">
-          <button
+          <div>
+          <FilterG />
+        </div>
+        <SearchForMainPage/>
+          {/* <button
             // onClick={search}
             className="w-[36px] h-[36px] border-[2px] rounded-lg flex justify-center items-center mr-3 mt-3"
           >
             <Search className="w-[16px] h-[16px]" />
-          </button>
+          </button> */}
           <button className="w-[36px] h-[36px] border-[2px] rounded-lg flex justify-center items-center mr-5 mt-3">
             <Moon className="w-[16px] h-[16px] " />
           </button>

@@ -45,7 +45,6 @@ export default function Home({ category, endpoint }: Props) {
     };
     fetchMovies();
   }, [params]);
-
   return (
     <div>
       <TopIcon />
@@ -57,7 +56,9 @@ export default function Home({ category, endpoint }: Props) {
       </div>
 
       <div className="grid grid-cols-2 gap-7 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
-        {movies?.map((movie: Movie) => (
+        
+        {!movies?(<p>loading......</p>):(
+          <div key={"dsadsa"}>{movies?.map((movie: Movie) => (
           <Link href={`/movie/${movie.id}`}>
             {" "}
             <div key={movie.id}>
@@ -75,6 +76,8 @@ export default function Home({ category, endpoint }: Props) {
             </div>
           </Link>
         ))}
+      </div>
+        )}
       </div>
       <Pagination1 pageInfo={pageInfo} />
     </div>
