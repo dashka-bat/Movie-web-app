@@ -34,12 +34,12 @@ export const Header = () => {
   return (
     <div>
       <TopIcon />
-      
+
       <div>
         <Carousel className="snap-normal" setApi={setApi} opts={{ loop: true }}>
           <CarouselContent>
             <CarouselItem>
-              <img src="pic1.png" alt="" />
+              <img className="w-[100%]" src="pic1.png" alt="" />
               <div className="text-[14px] ml-5">
                 Now playing:
                 <div className="flex justify-between">
@@ -60,7 +60,7 @@ export const Header = () => {
               </div>
             </CarouselItem>
             <CarouselItem>
-              <img src="pic2.png" alt="" />
+              <img className="w-[100%]" src="pic2.png" alt="" />
               <div className="text-[14px] ml-5">
                 Now playing:
                 <div className="flex justify-between">
@@ -80,7 +80,7 @@ export const Header = () => {
               </div>
             </CarouselItem>
             <CarouselItem>
-              <img src="pic3.png" alt="" />
+              <img className="w-[100%]" src="pic3.png" alt="" />
               <div className="text-[14px] ml-5">
                 Now playing:
                 <div className="flex justify-between">

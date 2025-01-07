@@ -16,7 +16,7 @@ export default async function Page({ params }: movieDetails) {
   const ad = `https://api.themoviedb.org/3/movie/${params.id}/credits`;
   const res = await fetch(ad, options);
   const resJsonn = await res.json();
-  // console.log(resJsonn.crew, "------------+++++++");
+  console.log(resJsonn, "------------+++++++");
   const response = await fetch(
     `https://api.themoviedb.org/3/movie/${params.id},`,
     options
@@ -63,12 +63,30 @@ export default async function Page({ params }: movieDetails) {
       </div>
       <div>
         director
-        {resJsonn?.crew?.map((cast: any) => <div>{cast.name}</div>).slice(0, 3)}
+        {resJsonn?.crew
+          ?.filter((director: any) => {
+            return director.job == "Director";
+          })
+          ?.map((director: any) => <h1>{director.name}</h1>)
+          .slice(0, 3)}
       </div>
-      <div>writer</div>
-      <div>stars</div>
-      <div>more like this
-        <div>kk</div>
+      <div>
+        writer
+        {resJsonn?.crew
+          ?.filter((writer: any) => {
+            return writer.job == "Story";
+          })
+          ?.map((director: any) => <h1>{director.name}</h1>)
+          .slice(0, 3)}
+      </div>
+      <div>
+        Stars
+        {resJsonn?.cast
+          ?.filter((Stars: any) => {
+            return Stars.popularity;
+          })
+          ?.map((director: any) => <h1>{director.name}</h1>)
+          .slice(0, 3)}
       </div>
     </div>
   );
