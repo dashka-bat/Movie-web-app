@@ -65,7 +65,7 @@ export const Header = () => {
                 Now playing:
                 <div className="flex justify-between">
                   <p className="text-[24px] ">Gladiator II</p>
-                  <p className="text-[18px] mr-5">⭐6.9/10</p>
+                  <p className="text-[18px] mr-5">⭐6.9 /010</p>
                 </div>
                 <p className="text-[14px]">
                   After his home is conquered by the tyrannical emperors who now
