@@ -59,25 +59,27 @@ export default function Home({ category, endpoint }: Props) {
         {!movies ? (
           <p>loading......</p>
         ) : (
-          <div key={"dsadsa"}>
-            {movies?.map((movie: Movie) => (
-              <Link href={`/movie/${movie.id}`}>
-                {" "}
-                <div key={movie.id}>
-                  <img
-                    className="rounded-t-lg "
-                    src={`${Tdb}${movie.poster_path}`}
-                    width={160}
-                    height={240}
-                  ></img>
-                  <div className="bg-[#F4F4F5] w-[160px] h-[76px] ">
-                    <div>⭐{movie.vote_average.toFixed(1)}/10</div>
-                    <h3 className="text-[14px]">{movie.title}</h3>
-                    <h3 className="text-[14px]">{movie.id}</h3>
-                  </div>
-                </div>
-              </Link>
-            ))}
+          <div className="grid grid-cols-2 gap-7 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 mr-8">
+            {movies
+              ?.map((movie: Movie) => (
+                <span key={movie.id}>
+                  <Link href={`/movie/${movie.id}`}>
+                    {" "}
+                    <span>
+                      <img
+                        className="rounded-t-lg "
+                        src={`${Tdb}${movie.poster_path}`}
+                      ></img>
+                      <div className="bg-[#F4F4F5] w-[160px] h-[76px] ">
+                        <div>⭐{movie.vote_average.toFixed(1)}/10</div>
+                        <h3 className="text-[14px]">{movie.title}</h3>
+                        <h3 className="text-[14px]">{movie.id}</h3>
+                      </div>
+                    </span>
+                  </Link>
+                </span>
+              ))
+              .slice(0, 4)}
           </div>
         )}
       </div>

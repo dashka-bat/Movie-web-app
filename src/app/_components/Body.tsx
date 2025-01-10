@@ -35,7 +35,7 @@ export const Body = async ({ category, endpoint }: Props) => {
       <div className="flex justify-between">
         <div className="text-[24px] text-pretty ml-5 mt-2">{category}</div>
         <Link href={`/${endpoint}`}>
-          <Button className="mr-4 mb-5">
+          <Button className="mr-4 mb-5 mt-4">
             see more
             <ArrowBigRight />
           </Button>
@@ -50,10 +50,8 @@ export const Body = async ({ category, endpoint }: Props) => {
                 <img
                   className="rounded-t-lg ml-5 "
                   src={`${Tdb}${movie.poster_path}`}
-                  width={160}
-                  height={240}
                 ></img>
-                <div className="bg-[#F4F4F5] w-[160px] h-[76px] ml-5 ">
+                <div className="bg-[#F4F4F5] w-[160px] h-[76px] ml-5 sm:w-[290px] md:w-[230px] 2xl:w-[420px] ">
                   <div>⭐{movie.vote_average.toFixed(1)}/1000</div>
                   <h3 className="text-[14px]">{movie.title}</h3>
                   <h3 className="text-[14px]">{movie.id}</h3>
