@@ -21,13 +21,11 @@ const TopIcon = () => {
           </div>
         </Link>
 
-        
-
         <div className="flex">
           <div>
-          <FilterG />
-        </div>
-        <SearchForMainPage/>
+            <FilterG />
+          </div>
+          <SearchForMainPage />
           {/* <button
             // onClick={search}
             className="w-[36px] h-[36px] border-[2px] rounded-lg flex justify-center items-center mr-3 mt-3"

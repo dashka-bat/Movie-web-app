@@ -41,7 +41,7 @@ export const FilterG = () => {
         <PopoverTrigger>⬇genre</PopoverTrigger>
         <PopoverContent>
           {genres?.map((genre: Genretype) => (
-            <Link href={`/search?with_genres=${genre.id}`}>
+            <Link key={genre.id} href={`/search?with_genres=${genre.id}`}>
               <Badge key={genre?.id}>{genre?.name}→</Badge>
             </Link>
           ))}

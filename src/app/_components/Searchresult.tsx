@@ -4,10 +4,12 @@ import { useEffect, useState } from "react";
 import { Movie } from "../constants/types";
 import Link from "next/link";
 import { title } from "process";
-
+import { Button } from "@/components/ui/button";
+import { ArrowBigRight } from "lucide-react";
 type SearchResultProps = {
   searchValue: string;
 };
+const Tdb = "https://image.tmdb.org/t/p/w500/";
 export const SearchResult1 = ({ searchValue }: SearchResultProps) => {
   const [movies, setMovies] = useState<Movie[]>();
   useEffect(() => {
@@ -23,6 +25,7 @@ export const SearchResult1 = ({ searchValue }: SearchResultProps) => {
 
     fetchMovies();
   }, [searchValue]);
+  console.log(movies, "ahhahahhahahhahahahahha");
   return (
     <div className="absolute top-16 md:top-14 w-full max-w-[577px] bg-background rounded-lg shadow-lg z-10">
       {!movies ? (
@@ -32,7 +35,18 @@ export const SearchResult1 = ({ searchValue }: SearchResultProps) => {
           <div className="p-3">
             {movies.map((movie) => (
               <Link href={`/movie/${movie.id}`} key={movie.id}>
-                <div>{movie.title}</div>
+                <div className="flex mt-6">
+                  <img
+                    className="rounded-t-lg w-[67px] h-[100px] "
+                    src={`${Tdb}${movie.poster_path}`}
+                  ></img>
+                  <div>
+                    {movie.title}
+                    <div>⭐{movie.vote_average.toFixed(1)}/10</div>
+                    {/* <div>{movie.release_date}</div> */}
+                    <button>see more -</button>
+                  </div>
+                </div>
               </Link>
             ))}
           </div>
@@ -40,9 +54,9 @@ export const SearchResult1 = ({ searchValue }: SearchResultProps) => {
           <div className="p-3 pt-0">
             <Link
               href={`/searchPage?query=${searchValue}`}
-              className="py-2.5 px-4 text-foreground"
+              className="py-2.5 px-4  text-[14px]"
             >
-              see all results for{searchValue}
+              see all results for:"{searchValue}""
             </Link>
           </div>
         </>

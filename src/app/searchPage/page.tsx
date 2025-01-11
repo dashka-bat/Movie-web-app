@@ -39,8 +39,6 @@ export default function SearchResult({ movie }: any) {
             <img
               className="rounded-t-lg "
               src={`${Tdb}${movie.poster_path}`}
-              width={160}
-              height={240}
             ></img>
             <div className="bg-[#F4F4F5] w-[160px] h-[76px] ">
               <div>⭐{movie.vote_average.toFixed(1)}/10</div>

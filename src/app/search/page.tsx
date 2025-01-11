@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { Movie } from "../constants/types";
 import { pages } from "next/dist/build/templates/app-page";
 import { Body } from "../_components/Body";
+import { TopIcon } from "../_components/topicon";
 const Tdb = "https://image.tmdb.org/t/p/w500/";
 const options = {
   method: "GET",
@@ -33,23 +34,28 @@ export default function SearchResult({ movie }: any) {
   // console.log(movies);
   return (
     <div>
-      {movies?.map((movie) => (
-        <div key={movie.id}>
-          <div>
-            <img
-              className="rounded-t-lg "
-              src={`${Tdb}${movie.poster_path}`}
-              width={160}
-              height={240}
-            ></img>
-            <div className="bg-[#F4F4F5] w-[160px] h-[76px] ">
-              <div>⭐{movie.vote_average.toFixed(1)}/10</div>
-              <h3 className="text-[14px]">{movie.title}</h3>
-              <h3 className="text-[14px]">{movie.id}</h3>
+      {" "}
+      <TopIcon />
+      <div className="grid grid-cols-2 gap-7 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 mr-8">
+        {movies?.map((movie) => (
+          <div key={movie.id}>
+            <div>
+              <img
+                className="rounded-t-lg "
+                src={`${Tdb}${movie.poster_path}`}
+                width={160}
+                height={240}
+              ></img>
+              <div className="bg-[#F4F4F5] w-[160px] h-[76px] ">
+                <div>⭐{movie.vote_average.toFixed(1)}/10</div>
+                <h3 className="text-[14px]">{movie.title}</h3>
+                <h3 className="text-[14px]">{movie.id}</h3>
+              </div>
             </div>
           </div>
-        </div>
-      ))}
+        ))}
+      </div>
+      ;
     </div>
   );
 }

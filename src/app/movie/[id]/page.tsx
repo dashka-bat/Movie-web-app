@@ -2,7 +2,7 @@ import { Header } from "@/app/_components/header";
 import { TopIcon } from "@/app/_components/topicon";
 import { Search } from "lucide-react";
 import { Moon } from "lucide-react";
-
+import Link from "next/link";
 import { ArrowBigLeft, ArrowBigRight, Film } from "lucide-react";
 import { movieDetails } from "@/app/constants/types";
 import { options } from "@/app/constants/types";
@@ -61,32 +61,42 @@ export default async function Page({ params }: movieDetails) {
           <div>{resJson.overview}</div>
         </div>
       </div>
-      <div>
+      <div className="border-b-2 flex justify-between mt-10">
         director
-        {resJsonn?.crew
-          ?.filter((director: any) => {
-            return director.job == "Director";
-          })
-          ?.map((director: any) => <h1>{director.name}</h1>)
-          .slice(0, 3)}
+        <div>
+          {resJsonn?.crew
+            ?.filter((director: any) => {
+              return director.job == "Director";
+            })
+            ?.map((director: any) => <h1>{director.name}</h1>)
+            .slice(0, 3)}
+        </div>
       </div>
-      <div>
+      <div className="border-b-2 flex justify-between mt-10">
         writer
-        {resJsonn?.crew
-          ?.filter((writer: any) => {
-            return writer.job == "Story";
-          })
-          ?.map((director: any) => <h1>{director.name}</h1>)
-          .slice(0, 3)}
+        <div>
+          {resJsonn?.crew
+            ?.filter((writer: any) => {
+              return writer.job == "Story";
+            })
+            ?.map((director: any) => <h1>{director.name},</h1>)
+            .slice(0, 3)}
+        </div>
+      </div>
+      <div className="border-b-2 flex justify-between mt-10">
+        Stars
+        <div>
+          {resJsonn?.cast
+            ?.filter((Stars: any) => {
+              return Stars.popularity;
+            })
+            ?.map((director: any) => <h1>{director.name}</h1>)
+            .slice(0, 3)}
+        </div>
       </div>
       <div>
-        Stars
-        {resJsonn?.cast
-          ?.filter((Stars: any) => {
-            return Stars.popularity;
-          })
-          ?.map((director: any) => <h1>{director.name}</h1>)
-          .slice(0, 3)}
+        more like this
+        <button className="border-2">see more</button>
       </div>
     </div>
   );
