@@ -85,7 +85,7 @@ export const Header = () => {
                 Now playing:
                 <div className="flex justify-between">
                   <p className="text-[24px] ">Moana 2</p>
-                  <p className="text-[18px] mr-5">⭐6.9/10</p>
+                  <p className="text-[18px] mr-5">⭐6.9/100</p>
                 </div>
                 <p className="text-[14px]">
                   After receiving an unexpected call from her wayfinding
