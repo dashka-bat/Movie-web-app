@@ -9,13 +9,7 @@ import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { PageInfo } from "next/dist/build/utils";
 
-type Props = {
-  endpoint: string;
-
-  category: string;
-};
-
-export default function Home({ category, endpoint }: Props) {
+export default function Home() {
   const params = useParams();
   const searchParams = useSearchParams();
   const page = searchParams.get(`page`);
