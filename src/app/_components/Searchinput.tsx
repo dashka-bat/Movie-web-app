@@ -14,7 +14,7 @@ export function SearchInput({ value, handleChange }: SearchInputprops) {
         value={value}
         placeholder="search.....?"
         onChange={handleChange}
-        className="h-10 ml-2 border-[2px] border-gray-300 mr-[900px]"
+        className="h-8 mt-2 ml-2 border-[2px] border-gray-300 mr-[900px] rounded-lg text-black"
       ></input>
     </div>
   );

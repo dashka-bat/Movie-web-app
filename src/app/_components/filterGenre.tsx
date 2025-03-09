@@ -7,6 +7,7 @@ import {
 } from "@/components/ui/popover";
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import { ArrowDownToLine } from "lucide-react";
 const options = {
   method: "GET",
   headers: {
@@ -36,9 +37,12 @@ export const FilterG = () => {
   }, [genres]);
   // const onclickGenre = (genreId: number) => {};
   return (
-    <div className="border-[2px]">
+    <div className="border-[2px] text-black rounded-lg mt-2 ml-[332px]">
       <Popover>
-        <PopoverTrigger>⬇genre</PopoverTrigger>
+        <PopoverTrigger className="flex gap-2 ">
+          <ArrowDownToLine />
+          <p className="mr-2">Genre</p>
+        </PopoverTrigger>
         <PopoverContent>
           {genres?.map((genre: Genretype) => (
             <Link key={genre.id} href={`/search?with_genres=${genre.id}`}>

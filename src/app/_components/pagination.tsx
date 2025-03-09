@@ -2,6 +2,15 @@
 
 import { PageInfo } from "next/dist/build/utils";
 import { usePathname, useSearchParams, useRouter } from "next/navigation";
+import {
+  Pagination,
+  PaginationContent,
+  PaginationEllipsis,
+  PaginationItem,
+  PaginationLink,
+  PaginationNext,
+  PaginationPrevious,
+} from "@/components/ui/pagination";
 export const Pagination1 = ({ pageInfo }: { pageInfo: any }) => {
   const pathName = usePathname();
   const SearchParams = useSearchParams();
@@ -16,30 +25,50 @@ export const Pagination1 = ({ pageInfo }: { pageInfo: any }) => {
   const lastpage = pageInfo.totalPages > 500 ? 500 : pageInfo.totalpages;
   return (
     <div className="flex gap-5 mt-5">
-      <div
-        className="border-[2px] w-5 items-center"
-        onClick={() => {
-          onChangePage(1);
-        }}
-      >
-        1
-      </div>
-      <div
-        className="border-[2px] w-5 items-center"
-        onClick={() => {
-          onChangePage(2);
-        }}
-      >
-        2
-      </div>
-      <div
-        className="border-[2px] w-5 items-center"
-        onClick={() => {
-          onChangePage(3);
-        }}
-      >
-        3
-      </div>
+      <Pagination>
+        <PaginationContent>
+          <PaginationItem>
+            <PaginationPrevious href="#" />
+          </PaginationItem>
+          <PaginationItem>
+            <PaginationLink
+              onClick={() => {
+                onChangePage(1);
+              }}
+              href="#"
+            >
+              1
+            </PaginationLink>
+          </PaginationItem>
+          <PaginationItem>
+            <PaginationLink
+              onClick={() => {
+                onChangePage(2);
+              }}
+              href="#"
+              isActive
+            >
+              2
+            </PaginationLink>
+          </PaginationItem>
+          <PaginationItem>
+            <PaginationLink
+              onClick={() => {
+                onChangePage(3);
+              }}
+              href="#"
+            >
+              3
+            </PaginationLink>
+          </PaginationItem>
+          <PaginationItem>
+            <PaginationEllipsis />
+          </PaginationItem>
+          <PaginationItem>
+            <PaginationNext href="#" />
+          </PaginationItem>
+        </PaginationContent>
+      </Pagination>
     </div>
   );
 };

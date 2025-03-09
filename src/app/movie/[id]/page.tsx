@@ -38,12 +38,13 @@ export default async function Page({ params }: movieDetails) {
       </div>
 
       <img
-        className="rounded-t-lg"
+        className="rounded-t-lg w-5/6"
         src={`${Tdb}${resJson.backdrop_path}`}
       ></img>
       <div className="flex mt-6">
         <div className="ml-5">
           <img
+            className="rounded-lg"
             src={`https://image.tmdb.org/t/p/w500${resJson.poster_path}`}
           ></img>
         </div>
@@ -63,7 +64,7 @@ export default async function Page({ params }: movieDetails) {
       </div>
       <div className="border-b-2 flex justify-between mt-10">
         director
-        <div>
+        <div className="mr-16">
           {resJsonn?.crew
             ?.filter((director: any) => {
               return director.job == "Director";
@@ -90,14 +91,14 @@ export default async function Page({ params }: movieDetails) {
             ?.filter((Stars: any) => {
               return Stars.popularity;
             })
-            ?.map((director: any) => <h1>{director.name}</h1>)
+            ?.map((director: any) => <h1 key={director.id}>{director.name}</h1>)
             .slice(0, 3)}
         </div>
       </div>
-      <div>
+      {/* <div>
         more like this
         <button className="border-2">see more</button>
-      </div>
+      </div> */}
     </div>
   );
 }

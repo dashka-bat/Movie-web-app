@@ -27,7 +27,7 @@ const Footer = () => {
           </div>
         </div>
 
-        <div className="text-white mr-[65px]">
+        <div className="text-white mr-[200px] sm:mr-[65px] 2xl:mr-[200px]">
           Follow Us
           <div className="mt-[12px]">Facebook</div>
           <div className="mt-[12px]">Instagram</div>

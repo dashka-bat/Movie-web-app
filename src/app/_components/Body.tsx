@@ -51,7 +51,7 @@ export const Body = async ({ category, endpoint }: Props) => {
                   className="rounded-t-lg ml-5 "
                   src={`${Tdb}${movie.poster_path}`}
                 ></img>
-                <div className="bg-[#F4F4F5] w-[160px] h-[76px] ml-5 sm:w-[290px] md:w-[230px] 2xl:w-[420px] ">
+                <div className="bg-white w-[160px] h-[76px] ml-5 sm:w-[290px] md:w-[230px] xl:[w-1280px] 2xl:w-[420px] ">
                   <div>⭐{movie.vote_average.toFixed(1)}/1000</div>
                   <h3 className="text-[14px]">{movie.title}</h3>
                   <h3 className="text-[14px]">{movie.id}</h3>
