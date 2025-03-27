@@ -32,7 +32,7 @@ const TopIcon = () => {
           >
             <Search className="w-[16px] h-[16px]" />
           </button> */}
-          <button className="w-[36px] h-[36px] border-[2px] rounded-lg flex justify-center items-center mr-5 mt-3">
+          <button className="w-[36px] h-[36px] border-[2px] rounded-lg flex justify-center items-center mr-5 mt-3 sm:hidden md:hidden lg:hidden xl:hidden">
             <Moon className="w-[16px] h-[16px] " />
           </button>
         </div>

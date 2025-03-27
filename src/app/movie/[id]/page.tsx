@@ -1,10 +1,8 @@
 import { notFound } from "next/navigation";
-import { Header } from "@/app/_components/header";
 import { TopIcon } from "@/app/_components/topicon";
-import { Search, Moon, ArrowBigLeft, ArrowBigRight, Film } from "lucide-react";
-import Link from "next/link";
 import { options } from "@/app/constants/types";
 
+// Type definitions outside the function
 type Genre = {
   id: number;
   name: string;
@@ -37,16 +35,22 @@ type CreditsResponse = {
   cast: CastMember[];
 };
 
-export default async function Page({ params }: { params: { id: string } }) {
+type Props = {
+  params: { id: string }; // params.id is a string in Next.js
+};
+
+export default async function Page({ params }: Props) {
   try {
-    const ad = `https://api.themoviedb.org/3/movie/${params.id}/credits`;
-    const res = await fetch(ad, options);
+    const movieId = params.id; // Directly get the movieId from params
+
+    // Fetch credits data
+    const creditsUrl = `https://api.themoviedb.org/3/movie/${movieId}/credits`;
+    const res = await fetch(creditsUrl, options);
     const resJsonn: CreditsResponse = await res.json();
 
-    const response = await fetch(
-      `https://api.themoviedb.org/3/movie/${params.id}`,
-      options
-    );
+    // Fetch movie details
+    const movieUrl = `https://api.themoviedb.org/3/movie/${movieId}`;
+    const response = await fetch(movieUrl, options);
     const resJson: MovieDetails = await response.json();
 
     if (!res.ok || !response.ok) {
@@ -126,8 +130,8 @@ export default async function Page({ params }: { params: { id: string } }) {
         </div>
       </div>
     );
-  } catch (error) {
-    console.error(error);
+  } catch (error: any) {
+    console.error("Error fetching data:", error);
     notFound();
   }
 }
