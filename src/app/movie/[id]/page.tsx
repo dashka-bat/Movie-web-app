@@ -35,13 +35,14 @@ type CreditsResponse = {
   cast: CastMember[];
 };
 
-type Props = {
-  params: { id: string }; // params.id is a string in Next.js
+type PageProps = {
+  params: Promise<{
+    id: string | number;
+  }>;
 };
-
-export default async function Page({ params }: Props) {
+export default async function Page({ params }: PageProps) {
   try {
-    const movieId = params.id; // Directly get the movieId from params
+    const { id: movieId } = await params; // Await the params to get the movieId
 
     // Fetch credits data
     const creditsUrl = `https://api.themoviedb.org/3/movie/${movieId}/credits`;
