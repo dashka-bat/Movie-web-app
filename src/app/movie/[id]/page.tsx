@@ -1,10 +1,8 @@
 import { notFound } from "next/navigation";
-import { Header } from "@/app/_components/header";
 import { TopIcon } from "@/app/_components/topicon";
-import { Search, Moon, ArrowBigLeft, ArrowBigRight, Film } from "lucide-react";
-import Link from "next/link";
 import { options } from "@/app/constants/types";
 
+// Type definitions outside the function
 type Genre = {
   id: number;
   name: string;
@@ -37,16 +35,23 @@ type CreditsResponse = {
   cast: CastMember[];
 };
 
-export default async function Page({ params }: { params: { id: string } }) {
+type PageProps = {
+  params: Promise<{
+    id: string | number;
+  }>;
+};
+export default async function Page({ params }: PageProps) {
   try {
-    const ad = `https://api.themoviedb.org/3/movie/${params.id}/credits`;
-    const res = await fetch(ad, options);
+    const { id: movieId } = await params; // Await the params to get the movieId
+
+    // Fetch credits data
+    const creditsUrl = `https://api.themoviedb.org/3/movie/${movieId}/credits`;
+    const res = await fetch(creditsUrl, options);
     const resJsonn: CreditsResponse = await res.json();
 
-    const response = await fetch(
-      `https://api.themoviedb.org/3/movie/${params.id}`,
-      options
-    );
+    // Fetch movie details
+    const movieUrl = `https://api.themoviedb.org/3/movie/${movieId}`;
+    const response = await fetch(movieUrl, options);
     const resJson: MovieDetails = await response.json();
 
     if (!res.ok || !response.ok) {
@@ -126,8 +131,8 @@ export default async function Page({ params }: { params: { id: string } }) {
         </div>
       </div>
     );
-  } catch (error) {
-    console.error(error);
+  } catch (error: any) {
+    console.error("Error fetching data:", error);
     notFound();
   }
 }
